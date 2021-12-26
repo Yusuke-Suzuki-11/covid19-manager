@@ -24,11 +24,11 @@ class RootPage extends ConsumerWidget {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'コメント'
+            label: 'ホーム'
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'コメント'
+            icon: Icon(Icons.chair),
+            label: 'チャート'
           )
         ],
         backgroundColor: Colors.white,
