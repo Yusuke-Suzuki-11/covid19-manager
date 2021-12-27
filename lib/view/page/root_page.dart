@@ -1,3 +1,4 @@
+import 'package:covid19_manager/const/pallet.dart';
 import 'package:covid19_manager/state/root_index_provider.dart';
 import 'package:covid19_manager/view/page/my_home_page.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +13,8 @@ class RootPage extends ConsumerWidget {
       body: IndexedStack(
         index: ref.watch(rootIndexProvider),
         children: const <Widget>[
-          MyHomePage(
-            title: 'テストタイトル'
-          ),
-          MyHomePage(
-            title: '2ページ'
-          ),
+          MyHomePage(),
+          MyHomePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -27,13 +24,12 @@ class RootPage extends ConsumerWidget {
             label: 'ホーム'
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chair),
+            icon: Icon(Icons.bar_chart_rounded),
             label: 'チャート'
           )
         ],
         backgroundColor: Colors.white,
-        elevation: 0,
-        selectedItemColor: Colors.green,
+        selectedItemColor: Pallet.mainColor,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         currentIndex: ref.watch(rootIndexProvider),
