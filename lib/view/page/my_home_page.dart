@@ -37,7 +37,54 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Center()
+      body: Container(
+        alignment: Alignment.topCenter,
+        child: Padding(
+          padding: EdgeInsets.only(top: 35),
+          child: Column(
+            children: [
+              Container(
+                width: 145,
+                child: DefaultTextStyle.merge(
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('東京都'),
+                    ],
+                  ),
+                ),
+              ),
+              const Text(
+                "+15",
+                style: TextStyle(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                  height: 1,
+                ),
+                strutStyle: StrutStyle(
+                  fontSize: 16.0,
+                  height: 1.3,
+                ),
+              ),
+              const Text(
+                "12月29日(金)時点",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                strutStyle: StrutStyle(
+                  fontSize: 16.0,
+                  height: 1.3,
+                ),
+              ),
+            ],
+          ),
+        )
+      ),
     );
   }
 }
