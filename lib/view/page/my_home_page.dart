@@ -1,5 +1,6 @@
 import 'package:covid19_manager/const/custom_icon.dart';
 import 'package:covid19_manager/const/pallet.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -43,48 +44,89 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.only(top: 35),
           child: Column(
             children: [
-              Container(
-                width: 145,
-                child: DefaultTextStyle.merge(
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
+              Column(
+                children: [
+                  Container(
+                    width: 145,
+                    child: DefaultTextStyle.merge(
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text('東京都'),
+                        ],
+                      ),
+                    ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('東京都'),
-                    ],
+                  const Text(
+                    "+15",
+                    style: TextStyle(
+                      fontSize: 80,
+                      fontWeight: FontWeight.bold,
+                      height: 1,
+                    ),
+                    strutStyle: StrutStyle(
+                      fontSize: 16.0,
+                      height: 1.3,
+                    ),
+                  ),
+                  const Text(
+                    "12月29日(金)時点",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    strutStyle: StrutStyle(
+                      fontSize: 16.0,
+                      height: 1.3,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: AspectRatio(
+                  aspectRatio: 5/3,
+                  child: BarChart(
+                    BarChartData(
+                      barGroups: getBarGroups(),
+                      borderData: FlBorderData(show: false),
+                      titlesData: FlTitlesData(
+                        leftTitles: SideTitles(
+                          showTitles: false
+                        )
+                      )
+                    ),
                   ),
                 ),
-              ),
-              const Text(
-                "+15",
-                style: TextStyle(
-                  fontSize: 80,
-                  fontWeight: FontWeight.bold,
-                  height: 1,
-                ),
-                strutStyle: StrutStyle(
-                  fontSize: 16.0,
-                  height: 1.3,
-                ),
-              ),
-              const Text(
-                "12月29日(金)時点",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-                strutStyle: StrutStyle(
-                  fontSize: 16.0,
-                  height: 1.3,
-                ),
-              ),
+              )
             ],
           ),
         )
       ),
     );
   }
+}
+
+
+List<BarChartGroupData> getBarGroups() {
+  List<double> barChartDatas = [6,10,8,7,10,15,9];
+  List<BarChartGroupData> barChartGroups = [];
+  barChartDatas.asMap().forEach(
+    (int i, double chartData) => barChartGroups.add(
+      BarChartGroupData(
+        x: i,
+        barRods: [
+          BarChartRodData(
+            y: chartData,
+            colors: [Pallet.mainColor]
+          )
+        ]
+      )
+    )
+  );
+  return barChartGroups;
 }
