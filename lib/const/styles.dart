@@ -12,4 +12,11 @@ class Styles {
     fontWeight: FontWeight.bold,
     fontSize: 19
   );
+  
+  
+  static final btnListItem = OutlinedButton.styleFrom(
+    side: BorderSide(width: 0, color: Colors.transparent),
+  );
+
+  
 }

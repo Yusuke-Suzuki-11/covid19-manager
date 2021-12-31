@@ -1,4 +1,5 @@
 import 'package:covid19_manager/const/styles.dart';
+import 'package:covid19_manager/view/page/setting_place_page.dart';
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatelessWidget {
@@ -11,20 +12,34 @@ class SettingPage extends StatelessWidget {
           '設定',
           style: Styles.txtAppBar
         ),
-        centerTitle: true,
+        // centerTitle: true,
         backgroundColor: Colors.white,
       ),
       body: ListView(
         children: [
-          getListItem('地域', Icons.place)
+          _getListItem(
+            '地域',
+            Icons.place,
+            (){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingPlacePage();
+                  },
+                ),
+              );
+            }
+          )
         ],
       ),
     );
   }
 }
 
-Widget getListItem(String title, IconData icon){
-  return Container(
+Widget _getListItem(String title, IconData icon, VoidCallback onPressedFunc){
+  return OutlinedButton(
+    onPressed: onPressedFunc,
+    style: Styles.btnListItem,
     child: ListTile(
       leading: Icon(
         icon,
