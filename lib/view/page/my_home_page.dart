@@ -1,7 +1,7 @@
 import 'package:covid19_manager/const/custom_icon.dart';
 import 'package:covid19_manager/const/pallet.dart';
+import 'package:covid19_manager/view/page/setting_page.dart';
 import 'package:covid19_manager/view/widget/weekly_border_chart_widget.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -24,13 +24,18 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Pallet.mainColor,
           ),
           onPressed: (){
-            print('メニューが開きます');
           },
         ),
         actions: [
           IconButton(
             onPressed: (){
-              print('押されたよ');
+              Navigator.of(context, rootNavigator: true).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingPage();
+                  },
+                ),
+              );
             },
             icon: Icon(
               Icons.settings,
