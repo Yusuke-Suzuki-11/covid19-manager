@@ -1,5 +1,6 @@
 import 'package:covid19_manager/const/custom_icon.dart';
 import 'package:covid19_manager/const/pallet.dart';
+import 'package:covid19_manager/view/widget/weekly_border_chart_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -88,20 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 50),
-                child: AspectRatio(
-                  aspectRatio: 5/3,
-                  child: BarChart(
-                    BarChartData(
-                      barGroups: getBarGroups(),
-                      borderData: FlBorderData(show: false),
-                      titlesData: FlTitlesData(
-                        leftTitles: SideTitles(
-                          showTitles: false
-                        )
-                      )
-                    ),
-                  ),
-                ),
+                child: WeeklyBorderChartWidget()
               )
             ],
           ),
@@ -109,24 +97,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-
-List<BarChartGroupData> getBarGroups() {
-  List<double> barChartDatas = [6,10,8,7,10,15,9];
-  List<BarChartGroupData> barChartGroups = [];
-  barChartDatas.asMap().forEach(
-    (int i, double chartData) => barChartGroups.add(
-      BarChartGroupData(
-        x: i,
-        barRods: [
-          BarChartRodData(
-            y: chartData,
-            colors: [Pallet.mainColor]
-          )
-        ]
-      )
-    )
-  );
-  return barChartGroups;
 }
