@@ -1,4 +1,4 @@
-import 'package:covid19_manager/view/page/root_page.dart';
+import 'package:covid19_manager/presentation/view/page/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

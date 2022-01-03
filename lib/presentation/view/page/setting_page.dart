@@ -1,5 +1,5 @@
 import 'package:covid19_manager/const/styles.dart';
-import 'package:covid19_manager/view/page/setting_place_page.dart';
+import 'package:covid19_manager/presentation/view/page/setting_place_page.dart';
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatelessWidget {

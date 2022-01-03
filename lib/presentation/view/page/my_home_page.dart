@@ -1,7 +1,7 @@
 import 'package:covid19_manager/const/custom_icon.dart';
 import 'package:covid19_manager/const/pallet.dart';
-import 'package:covid19_manager/view/page/setting_page.dart';
-import 'package:covid19_manager/view/widget/weekly_border_chart_widget.dart';
+import 'package:covid19_manager/presentation/view/page/setting_page.dart';
+import 'package:covid19_manager/presentation/view/widget/weekly_border_chart_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
