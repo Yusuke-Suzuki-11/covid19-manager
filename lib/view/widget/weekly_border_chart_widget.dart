@@ -11,7 +11,7 @@ class WeeklyBorderChartWidget extends HookConsumerWidget{
       aspectRatio: 5/3,
       child: BarChart(
         BarChartData(
-          barGroups: getBarGroups(),
+          barGroups: _getBarGroups(),
           borderData: FlBorderData(show: false),
           titlesData: FlTitlesData(
             rightTitles: SideTitles(
@@ -27,9 +27,7 @@ class WeeklyBorderChartWidget extends HookConsumerWidget{
   }
 }
 
-
-
-List<BarChartGroupData> getBarGroups() {
+List<BarChartGroupData> _getBarGroups() {
   List<double> barChartDatas = [6,10,8,7,10,15,9];
   List<BarChartGroupData> barChartGroups = [];
   barChartDatas.asMap().forEach(
