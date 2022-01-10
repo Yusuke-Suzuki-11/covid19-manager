@@ -1,6 +1,8 @@
 import 'package:covid19_manager/const/pallet.dart';
+import 'package:covid19_manager/infrastructure/api/patient_prefecture_repository.dart';
 import 'package:covid19_manager/state/root_index_provider.dart';
 import 'package:covid19_manager/presentation/view/page/my_home_page.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,6 +11,7 @@ class RootPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     return Scaffold(
       body: IndexedStack(
         index: ref.watch(rootIndexProvider),
