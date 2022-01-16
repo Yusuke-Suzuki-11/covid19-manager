@@ -1,5 +1,5 @@
 import 'package:covid19_manager/const/pallet.dart';
-import 'package:covid19_manager/infrastructure/api/patient_prefecture_repository.dart';
+import 'package:covid19_manager/repository/api/patient_prefecture_repository.dart';
 import 'package:covid19_manager/state/root_index_provider.dart';
 import 'package:covid19_manager/presentation/view/page/my_home_page.dart';
 import 'package:dio/dio.dart';

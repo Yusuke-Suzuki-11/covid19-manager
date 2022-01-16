@@ -13,16 +13,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+PatientPrefecture _$PatientPrefectureFromJson(Map<String, dynamic> json) {
+  return _PatientPrefecture.fromJson(json);
+}
+
 /// @nodoc
 class _$PatientPrefectureTearOff {
   const _$PatientPrefectureTearOff();
 
-  _PatientPrefecture call(String date, String nameJp, int patients) {
+  _PatientPrefecture call(
+      {required String date, required String nameJp, required int patients}) {
     return _PatientPrefecture(
-      date,
-      nameJp,
-      patients,
+      date: date,
+      nameJp: nameJp,
+      patients: patients,
     );
+  }
+
+  PatientPrefecture fromJson(Map<String, Object?> json) {
+    return PatientPrefecture.fromJson(json);
   }
 }
 
@@ -35,6 +44,7 @@ mixin _$PatientPrefecture {
   String get nameJp => throw _privateConstructorUsedError;
   int get patients => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PatientPrefectureCopyWith<PatientPrefecture> get copyWith =>
       throw _privateConstructorUsedError;
@@ -108,15 +118,15 @@ class __$PatientPrefectureCopyWithImpl<$Res>
     Object? patients = freezed,
   }) {
     return _then(_PatientPrefecture(
-      date == freezed
+      date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      nameJp == freezed
+      nameJp: nameJp == freezed
           ? _value.nameJp
           : nameJp // ignore: cast_nullable_to_non_nullable
               as String,
-      patients == freezed
+      patients: patients == freezed
           ? _value.patients
           : patients // ignore: cast_nullable_to_non_nullable
               as int,
@@ -125,9 +135,13 @@ class __$PatientPrefectureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_PatientPrefecture implements _PatientPrefecture {
-  const _$_PatientPrefecture(this.date, this.nameJp, this.patients);
+  const _$_PatientPrefecture(
+      {required this.date, required this.nameJp, required this.patients});
+
+  factory _$_PatientPrefecture.fromJson(Map<String, dynamic> json) =>
+      _$$_PatientPrefectureFromJson(json);
 
   @override
   final String date;
@@ -162,11 +176,21 @@ class _$_PatientPrefecture implements _PatientPrefecture {
   @override
   _$PatientPrefectureCopyWith<_PatientPrefecture> get copyWith =>
       __$PatientPrefectureCopyWithImpl<_PatientPrefecture>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PatientPrefectureToJson(this);
+  }
 }
 
 abstract class _PatientPrefecture implements PatientPrefecture {
-  const factory _PatientPrefecture(String date, String nameJp, int patients) =
-      _$_PatientPrefecture;
+  const factory _PatientPrefecture(
+      {required String date,
+      required String nameJp,
+      required int patients}) = _$_PatientPrefecture;
+
+  factory _PatientPrefecture.fromJson(Map<String, dynamic> json) =
+      _$_PatientPrefecture.fromJson;
 
   @override
   String get date;
