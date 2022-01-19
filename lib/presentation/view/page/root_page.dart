@@ -2,7 +2,6 @@ import 'package:covid19_manager/const/pallet.dart';
 import 'package:covid19_manager/repository/api/patient_prefecture_repository.dart';
 import 'package:covid19_manager/state/root_index_provider.dart';
 import 'package:covid19_manager/presentation/view/page/my_home_page.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -37,7 +36,9 @@ class RootPage extends ConsumerWidget {
         showUnselectedLabels: true,
         currentIndex: ref.watch(rootIndexProvider),
         enableFeedback: true,
-        onTap: (int index){
+        onTap: (int index) async {
+          var test = PatientPrefectureRowRepository();
+          test.fetchData('20220101', '東京都');
           ref.watch(rootIndexProvider.notifier).selectIndex(index);
         },
       ),

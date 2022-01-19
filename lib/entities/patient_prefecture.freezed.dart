@@ -22,11 +22,13 @@ class _$PatientPrefectureTearOff {
   const _$PatientPrefectureTearOff();
 
   _PatientPrefecture call(
-      {required String date, required String nameJp, required int patients}) {
+      {@DateTimeConverter() required DateTime date,
+      @JsonKey(name: 'name_jp') required String nameJp,
+      @IntConverter() required int npatients}) {
     return _PatientPrefecture(
       date: date,
       nameJp: nameJp,
-      patients: patients,
+      npatients: npatients,
     );
   }
 
@@ -40,9 +42,12 @@ const $PatientPrefecture = _$PatientPrefectureTearOff();
 
 /// @nodoc
 mixin _$PatientPrefecture {
-  String get date => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name_jp')
   String get nameJp => throw _privateConstructorUsedError;
-  int get patients => throw _privateConstructorUsedError;
+  @IntConverter()
+  int get npatients => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +60,10 @@ abstract class $PatientPrefectureCopyWith<$Res> {
   factory $PatientPrefectureCopyWith(
           PatientPrefecture value, $Res Function(PatientPrefecture) then) =
       _$PatientPrefectureCopyWithImpl<$Res>;
-  $Res call({String date, String nameJp, int patients});
+  $Res call(
+      {@DateTimeConverter() DateTime date,
+      @JsonKey(name: 'name_jp') String nameJp,
+      @IntConverter() int npatients});
 }
 
 /// @nodoc
@@ -71,20 +79,20 @@ class _$PatientPrefectureCopyWithImpl<$Res>
   $Res call({
     Object? date = freezed,
     Object? nameJp = freezed,
-    Object? patients = freezed,
+    Object? npatients = freezed,
   }) {
     return _then(_value.copyWith(
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
       nameJp: nameJp == freezed
           ? _value.nameJp
           : nameJp // ignore: cast_nullable_to_non_nullable
               as String,
-      patients: patients == freezed
-          ? _value.patients
-          : patients // ignore: cast_nullable_to_non_nullable
+      npatients: npatients == freezed
+          ? _value.npatients
+          : npatients // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -97,7 +105,10 @@ abstract class _$PatientPrefectureCopyWith<$Res>
           _PatientPrefecture value, $Res Function(_PatientPrefecture) then) =
       __$PatientPrefectureCopyWithImpl<$Res>;
   @override
-  $Res call({String date, String nameJp, int patients});
+  $Res call(
+      {@DateTimeConverter() DateTime date,
+      @JsonKey(name: 'name_jp') String nameJp,
+      @IntConverter() int npatients});
 }
 
 /// @nodoc
@@ -115,20 +126,20 @@ class __$PatientPrefectureCopyWithImpl<$Res>
   $Res call({
     Object? date = freezed,
     Object? nameJp = freezed,
-    Object? patients = freezed,
+    Object? npatients = freezed,
   }) {
     return _then(_PatientPrefecture(
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
       nameJp: nameJp == freezed
           ? _value.nameJp
           : nameJp // ignore: cast_nullable_to_non_nullable
               as String,
-      patients: patients == freezed
-          ? _value.patients
-          : patients // ignore: cast_nullable_to_non_nullable
+      npatients: npatients == freezed
+          ? _value.npatients
+          : npatients // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -137,22 +148,27 @@ class __$PatientPrefectureCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PatientPrefecture implements _PatientPrefecture {
-  const _$_PatientPrefecture(
-      {required this.date, required this.nameJp, required this.patients});
+  _$_PatientPrefecture(
+      {@DateTimeConverter() required this.date,
+      @JsonKey(name: 'name_jp') required this.nameJp,
+      @IntConverter() required this.npatients});
 
   factory _$_PatientPrefecture.fromJson(Map<String, dynamic> json) =>
       _$$_PatientPrefectureFromJson(json);
 
   @override
-  final String date;
+  @DateTimeConverter()
+  final DateTime date;
   @override
+  @JsonKey(name: 'name_jp')
   final String nameJp;
   @override
-  final int patients;
+  @IntConverter()
+  final int npatients;
 
   @override
   String toString() {
-    return 'PatientPrefecture(date: $date, nameJp: $nameJp, patients: $patients)';
+    return 'PatientPrefecture(date: $date, nameJp: $nameJp, npatients: $npatients)';
   }
 
   @override
@@ -162,7 +178,7 @@ class _$_PatientPrefecture implements _PatientPrefecture {
             other is _PatientPrefecture &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.nameJp, nameJp) &&
-            const DeepCollectionEquality().equals(other.patients, patients));
+            const DeepCollectionEquality().equals(other.npatients, npatients));
   }
 
   @override
@@ -170,7 +186,7 @@ class _$_PatientPrefecture implements _PatientPrefecture {
       runtimeType,
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(nameJp),
-      const DeepCollectionEquality().hash(patients));
+      const DeepCollectionEquality().hash(npatients));
 
   @JsonKey(ignore: true)
   @override
@@ -184,20 +200,23 @@ class _$_PatientPrefecture implements _PatientPrefecture {
 }
 
 abstract class _PatientPrefecture implements PatientPrefecture {
-  const factory _PatientPrefecture(
-      {required String date,
-      required String nameJp,
-      required int patients}) = _$_PatientPrefecture;
+  factory _PatientPrefecture(
+      {@DateTimeConverter() required DateTime date,
+      @JsonKey(name: 'name_jp') required String nameJp,
+      @IntConverter() required int npatients}) = _$_PatientPrefecture;
 
   factory _PatientPrefecture.fromJson(Map<String, dynamic> json) =
       _$_PatientPrefecture.fromJson;
 
   @override
-  String get date;
+  @DateTimeConverter()
+  DateTime get date;
   @override
+  @JsonKey(name: 'name_jp')
   String get nameJp;
   @override
-  int get patients;
+  @IntConverter()
+  int get npatients;
   @override
   @JsonKey(ignore: true)
   _$PatientPrefectureCopyWith<_PatientPrefecture> get copyWith =>

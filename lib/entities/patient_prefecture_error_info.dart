@@ -7,9 +7,9 @@ part 'patient_prefecture_error_info.g.dart';
 
 @freezed
 class PatientPrefectureErrorInfo with _$PatientPrefectureErrorInfo {
-  const factory PatientPrefectureErrorInfo({
-    int? errorFlag,
-    int? errorCode,
+  factory PatientPrefectureErrorInfo ({
+    required String errorFlag,
+    String? errorCode,
     String? errorMessage,
   }) = _PatientPrefectureErrorInfo;
 

@@ -23,7 +23,7 @@ class _$PatientPrefectureErrorInfoTearOff {
   const _$PatientPrefectureErrorInfoTearOff();
 
   _PatientPrefectureErrorInfo call(
-      {int? errorFlag, int? errorCode, String? errorMessage}) {
+      {required String errorFlag, String? errorCode, String? errorMessage}) {
     return _PatientPrefectureErrorInfo(
       errorFlag: errorFlag,
       errorCode: errorCode,
@@ -41,8 +41,8 @@ const $PatientPrefectureErrorInfo = _$PatientPrefectureErrorInfoTearOff();
 
 /// @nodoc
 mixin _$PatientPrefectureErrorInfo {
-  int? get errorFlag => throw _privateConstructorUsedError;
-  int? get errorCode => throw _privateConstructorUsedError;
+  String get errorFlag => throw _privateConstructorUsedError;
+  String? get errorCode => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ abstract class $PatientPrefectureErrorInfoCopyWith<$Res> {
   factory $PatientPrefectureErrorInfoCopyWith(PatientPrefectureErrorInfo value,
           $Res Function(PatientPrefectureErrorInfo) then) =
       _$PatientPrefectureErrorInfoCopyWithImpl<$Res>;
-  $Res call({int? errorFlag, int? errorCode, String? errorMessage});
+  $Res call({String errorFlag, String? errorCode, String? errorMessage});
 }
 
 /// @nodoc
@@ -78,11 +78,11 @@ class _$PatientPrefectureErrorInfoCopyWithImpl<$Res>
       errorFlag: errorFlag == freezed
           ? _value.errorFlag
           : errorFlag // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String,
       errorCode: errorCode == freezed
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       errorMessage: errorMessage == freezed
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$PatientPrefectureErrorInfoCopyWith<$Res>
           $Res Function(_PatientPrefectureErrorInfo) then) =
       __$PatientPrefectureErrorInfoCopyWithImpl<$Res>;
   @override
-  $Res call({int? errorFlag, int? errorCode, String? errorMessage});
+  $Res call({String errorFlag, String? errorCode, String? errorMessage});
 }
 
 /// @nodoc
@@ -124,11 +124,11 @@ class __$PatientPrefectureErrorInfoCopyWithImpl<$Res>
       errorFlag: errorFlag == freezed
           ? _value.errorFlag
           : errorFlag // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String,
       errorCode: errorCode == freezed
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       errorMessage: errorMessage == freezed
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -140,16 +140,16 @@ class __$PatientPrefectureErrorInfoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PatientPrefectureErrorInfo implements _PatientPrefectureErrorInfo {
-  const _$_PatientPrefectureErrorInfo(
-      {this.errorFlag, this.errorCode, this.errorMessage});
+  _$_PatientPrefectureErrorInfo(
+      {required this.errorFlag, this.errorCode, this.errorMessage});
 
   factory _$_PatientPrefectureErrorInfo.fromJson(Map<String, dynamic> json) =>
       _$$_PatientPrefectureErrorInfoFromJson(json);
 
   @override
-  final int? errorFlag;
+  final String errorFlag;
   @override
-  final int? errorCode;
+  final String? errorCode;
   @override
   final String? errorMessage;
 
@@ -190,18 +190,18 @@ class _$_PatientPrefectureErrorInfo implements _PatientPrefectureErrorInfo {
 
 abstract class _PatientPrefectureErrorInfo
     implements PatientPrefectureErrorInfo {
-  const factory _PatientPrefectureErrorInfo(
-      {int? errorFlag,
-      int? errorCode,
+  factory _PatientPrefectureErrorInfo(
+      {required String errorFlag,
+      String? errorCode,
       String? errorMessage}) = _$_PatientPrefectureErrorInfo;
 
   factory _PatientPrefectureErrorInfo.fromJson(Map<String, dynamic> json) =
       _$_PatientPrefectureErrorInfo.fromJson;
 
   @override
-  int? get errorFlag;
+  String get errorFlag;
   @override
-  int? get errorCode;
+  String? get errorCode;
   @override
   String? get errorMessage;
   @override

@@ -15,16 +15,6 @@ class _MyHomePageState extends State<MyHomePage> {
   
   @override
   Widget build(BuildContext context) {
-    
-    return FutureBuilder(
-      
-      future: patientPrefectures.getPatientPrefectures('20211225' ,'東京都'),
-      builder: (context, AsyncSnapshot<PatientPrefectureModel> snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          return const CircularProgressIndicator();
-        }
-        PatientPrefectureModel todayPatientPrefectures = snapshot.data!;
-        
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
@@ -73,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(todayPatientPrefectures.nameJp),
+                              Text('日本'),
                             ],
                           ),
                         ),
@@ -91,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       Text(
-                        todayPatientPrefectures.date.toString() + " 時点",
+                        '2022年10月10日」' + " 時点",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -111,8 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             )
           ),
-        );
-      }
     );
   }
 }

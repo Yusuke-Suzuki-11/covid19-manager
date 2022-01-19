@@ -9,8 +9,8 @@ part of 'patient_prefecture_error_info.dart';
 _$_PatientPrefectureErrorInfo _$$_PatientPrefectureErrorInfoFromJson(
         Map<String, dynamic> json) =>
     _$_PatientPrefectureErrorInfo(
-      errorFlag: json['errorFlag'] as int?,
-      errorCode: json['errorCode'] as int?,
+      errorFlag: json['errorFlag'] as String,
+      errorCode: json['errorCode'] as String?,
       errorMessage: json['errorMessage'] as String?,
     );
 

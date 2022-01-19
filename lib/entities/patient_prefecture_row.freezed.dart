@@ -141,8 +141,7 @@ class __$PatientPrefectureRowCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PatientPrefectureRow implements _PatientPrefectureRow {
-  const _$_PatientPrefectureRow(
-      {required this.errorInfo, required this.itemList});
+  _$_PatientPrefectureRow({required this.errorInfo, required this.itemList});
 
   factory _$_PatientPrefectureRow.fromJson(Map<String, dynamic> json) =>
       _$$_PatientPrefectureRowFromJson(json);
@@ -185,7 +184,7 @@ class _$_PatientPrefectureRow implements _PatientPrefectureRow {
 }
 
 abstract class _PatientPrefectureRow implements PatientPrefectureRow {
-  const factory _PatientPrefectureRow(
+  factory _PatientPrefectureRow(
       {required PatientPrefectureErrorInfo errorInfo,
       required List<PatientPrefecture> itemList}) = _$_PatientPrefectureRow;
 

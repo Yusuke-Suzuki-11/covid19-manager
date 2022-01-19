@@ -1,28 +1,25 @@
 
-import 'package:covid19_manager/entities/patient_prefecture.dart';
+import 'dart:convert';
+import 'package:covid19_manager/entities/patient_prefecture_row.dart';
 import 'package:dio/dio.dart';
 
-class PatientPrefectureRepository {
-  final String? queryDate;
-  final String? queryJpName;
+class PatientPrefectureRowRepository {
+  String? queryDate;
+  String? queryJpName;
   
-  PatientPrefectureRepository({this.queryDate, this.queryJpName});
+  PatientPrefectureRowRepository({this.queryDate, this.queryJpName});
   
-  Future<PatientPrefecture> getPatientPrefecture(String _date, String _jpName) async {
+  Future<PatientPrefectureRow> fetchData(String _date, String _jpName) async {
     Dio _dio = Dio();
-    String _endPoint = "https://opendata.corona.go.jp/api/Covid19JapanAll";
-    Response response = await _dio.get(_endPoint, queryParameters: {"date": _date, 'dataName': _jpName});
-    Map<String, dynamic> errorInfo = response.data['errorInfo'] as Map<String, dynamic>;
+    String _baseUrl = "https://opendata.corona.go.jp/api/Covid19JapanAll";
+    Response response = await _dio.get(_baseUrl, queryParameters: {"date": _date, 'dataName': _jpName});
     
-    if(errorInfo['errorCode'] != null ){
-      throw Exception();
+    if (response.statusCode == 200) {
+      final covid19Japan = PatientPrefectureRow.fromJson(response.data);
+      print(covid19Japan);
+      return covid19Japan;
+    } else {
+      throw Exception('Failed to load categories');
     }
-    List<dynamic> itemList = response.data['itemList'] as List<dynamic>;
-    Map<String, dynamic> item = itemList[0];
-    String date               = item['date'] as String;
-    String nameJp             = item['name_jp'] as String;
-    int    patientCount       = int.parse(item['npatients'] as String);
-    
-    return PatientPrefecture(date, nameJp, patientCount);
   }
 }

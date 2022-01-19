@@ -8,7 +8,7 @@ part 'patient_prefecture_row.g.dart';
 
 @freezed
 class PatientPrefectureRow with _$PatientPrefectureRow {
-  const factory PatientPrefectureRow({
+  factory PatientPrefectureRow ({
     required PatientPrefectureErrorInfo errorInfo,
     required List<PatientPrefecture> itemList,
   }) = _PatientPrefectureRow;
