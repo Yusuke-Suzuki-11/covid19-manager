@@ -9,7 +9,7 @@ part of 'patient_prefecture_repository.dart';
 class _PatientPrefectureRowRepository
     implements PatientPrefectureRowRepository {
   _PatientPrefectureRowRepository(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'https://opendata.corona.go.jp/api';
+    baseUrl ??= 'https://opendata.corona.go.jp/api/Covid19JapanAll';
   }
 
   final Dio _dio;
@@ -17,15 +17,18 @@ class _PatientPrefectureRowRepository
   String? baseUrl;
 
   @override
-  Future<PatientPrefectureRow> fetchData() async {
+  Future<PatientPrefectureRow> fetchData(dataName, date) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'dataName': dataName,
+      r'date': date
+    };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PatientPrefectureRow>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/Covid19JapanAll',
+                .compose(_dio.options, '/',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = PatientPrefectureRow.fromJson(_result.data!);

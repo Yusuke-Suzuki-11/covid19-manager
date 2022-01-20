@@ -39,7 +39,6 @@ class RootPage extends ConsumerWidget {
         enableFeedback: true,
         onTap: (int index) async {
           var test = PatientPrefectureRowRepository(Dio());
-          test.fetchData().then((value) => print(value));
           ref.watch(rootIndexProvider.notifier).selectIndex(index);
         },
       ),

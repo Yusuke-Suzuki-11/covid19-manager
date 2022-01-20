@@ -9,5 +9,8 @@ abstract class PatientPrefectureRowRepository {
   factory PatientPrefectureRowRepository(Dio dio, {String baseUrl}) = _PatientPrefectureRowRepository;
 
   @GET('/')
-  Future<PatientPrefectureRow> fetchData();
+  Future<PatientPrefectureRow> fetchData(
+    @Query('dataName') String dataName,
+    @Query('date') String date,
+  );
 }
