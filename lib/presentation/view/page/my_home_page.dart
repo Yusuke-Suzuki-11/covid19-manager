@@ -1,5 +1,6 @@
 import 'package:covid19_manager/const/custom_icon.dart';
 import 'package:covid19_manager/const/pallet.dart';
+import 'package:covid19_manager/presentation/state/weekly_patient_view_model.dart';
 import 'package:covid19_manager/repository/api/patient_prefecture_repository.dart';
 import 'package:covid19_manager/presentation/view/page/setting_page.dart';
 import 'package:covid19_manager/presentation/view/widget/weekly_border_chart_widget.dart';
